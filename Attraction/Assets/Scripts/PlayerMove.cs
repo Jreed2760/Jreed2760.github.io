@@ -9,12 +9,16 @@ public class PlayerMove : MonoBehaviour {
     Rigidbody myBody;
     public float forceAmt;
     public Text Speed;
+    AudioSource correctAudio;
+    AudioSource errorAudio;
 
     // Use this for initialization
     void Start () {
         myBody = GetComponent<Rigidbody>();
         Speed.text = "";
-
+        AudioSource[] audios = GetComponents<AudioSource>();
+        correctAudio = audios[0];
+        errorAudio = audios[1];
     }
     
     // Update is called once per frame
@@ -54,7 +58,8 @@ void OnCollisionEnter(Collision col){
 			
 			if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude ){
 				forceAmt +=3;
-				col.gameObject.SetActive(false);
+                correctAudio.Play();
+                col.gameObject.SetActive(false);
 			} else {
 				
 				gameObject.SetActive(false);
@@ -65,6 +70,7 @@ void OnCollisionEnter(Collision col){
 			
 			if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude ){
 				forceAmt -=3;
+                errorAudio.Play();
 				col.gameObject.SetActive(false);
 			} else {
 				
