@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMove : MonoBehaviour {
 
@@ -9,17 +11,18 @@ public class PlayerMove : MonoBehaviour {
     Rigidbody myBody;
     public float forceAmt;
     public Text Speed;
-    AudioSource correctAudio;
-    AudioSource errorAudio;
-
+	AudioSource correctAudio;
+ 	AudioSource errorAudio;
+ 
     // Use this for initialization
     void Start () {
         myBody = GetComponent<Rigidbody>();
         Speed.text = "";
-        AudioSource[] audios = GetComponents<AudioSource>();
-        correctAudio = audios[0];
-        errorAudio = audios[1];
-    }
+     AudioSource[] audios = GetComponents<AudioSource>();
+     correctAudio = audios[0];
+     errorAudio = audios[1];
+ }
+
     
     // Update is called once per frame
     void Update () {
@@ -48,6 +51,11 @@ private void OnTriggerEnter(Collider col)
             transform.position = new Vector3(6f, 38f, 57.5f);
             forceAmt = forceAmt - 4;
         }
+         if (col.gameObject.CompareTag("End"))
+        {
+          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // loads current scene
+
+        }
 	}
 
 	
@@ -58,11 +66,12 @@ void OnCollisionEnter(Collision col){
 			
 			if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude ){
 				forceAmt +=3;
-                correctAudio.Play();
-                col.gameObject.SetActive(false);
+				correctAudio.Play();
+				col.gameObject.SetActive(false);
 			} else {
 				
 				gameObject.SetActive(false);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
 				//Invoke("reload", 1f);
 			}
 		}
@@ -70,11 +79,12 @@ void OnCollisionEnter(Collision col){
 			
 			if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude ){
 				forceAmt -=3;
-                errorAudio.Play();
+				errorAudio.Play();
 				col.gameObject.SetActive(false);
 			} else {
 				
 				gameObject.SetActive(false);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
 				//Invoke("reload", 1f);
 			}
 	}
@@ -84,7 +94,10 @@ void OnCollisionEnter(Collision col){
 				col.gameObject.SetActive(false);
 			} else {
 				gameObject.SetActive(false);
-}
-}
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+			}
+		}
+
+
 }
 }

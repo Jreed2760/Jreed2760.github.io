@@ -13,6 +13,7 @@ TagManager:
   - BossSpawn
   - BossSpawn1
   - PosBoss
+  - End
   layers:
   - Default
   - TransparentFX
