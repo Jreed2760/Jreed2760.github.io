@@ -35,6 +35,8 @@ public class PlayerMove : MonoBehaviour {
             myBody.AddForce(Vector3.left * forceAmt);
         if (Input.GetKey(KeyCode.D))
             myBody.AddForce(Vector3.right * forceAmt);
+        if (Input.GetKey(KeyCode.Space))
+            myBody.AddForce(Vector3.down * forceAmt);
 
     }
 
