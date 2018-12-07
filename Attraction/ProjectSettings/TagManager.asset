@@ -14,6 +14,11 @@ TagManager:
   - BossSpawn1
   - PosBoss
   - End
+  - BossSpawn60
+  - BossSpawn40
+  - BossSpawn25
+  - BossSpawn35
+  - BossSpawn10
   layers:
   - Default
   - TransparentFX

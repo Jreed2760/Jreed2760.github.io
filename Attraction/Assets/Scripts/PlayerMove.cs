@@ -45,13 +45,13 @@ private void OnTriggerEnter(Collider col)
         if (col.gameObject.CompareTag("Teleport"))
         {
             transform.position = new Vector3(0f, 1f, -6f);
-            forceAmt = forceAmt - 4;
+            forceAmt = forceAmt - 6;
         }
 
         if (col.gameObject.CompareTag("Teleport1"))
         {
             transform.position = new Vector3(0f, 2.1f, -6.03f);
-            forceAmt = forceAmt - 4;
+            forceAmt = forceAmt - 6;
         }
          if (col.gameObject.CompareTag("End"))
         {
@@ -90,9 +90,9 @@ void OnCollisionEnter(Collision col){
 				//Invoke("reload", 1f);
 			}
 	}
-	if (col.gameObject.CompareTag("BossSpawn")){ 			
+	if (col.gameObject.CompareTag("BossSpawn10")){ 			
 			
-			if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt > 20){
+			if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt == 10f){
 				col.gameObject.SetActive(false);
 			} else {
 				gameObject.SetActive(false);
@@ -100,6 +100,57 @@ void OnCollisionEnter(Collision col){
 			}
 		}
 
+        if (col.gameObject.CompareTag("BossSpawn25"))
+        {
 
+            if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt == 25f)
+            {
+                col.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+        if (col.gameObject.CompareTag("BossSpawn35"))
+        {
+
+            if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt == 55f)
+            {
+                col.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+        if (col.gameObject.CompareTag("BossSpawn40"))
+        {
+
+            if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt == 40f)
+            {
+                col.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+        if (col.gameObject.CompareTag("BossSpawn60"))
+        {
+
+            if (transform.lossyScale.sqrMagnitude < col.transform.lossyScale.sqrMagnitude && forceAmt == 70f)
+            {
+                col.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
 }
 }

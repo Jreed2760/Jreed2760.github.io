@@ -31,10 +31,25 @@ public class Score : MonoBehaviour {
     }
  
    void OnCollisionEnter(Collision col){ 
-		if (col.gameObject.CompareTag("BossSpawn" )){ 
+		if (col.gameObject.CompareTag("BossSpawn10" )){ 
             score = score + 1;
         }
-			
+        if (col.gameObject.CompareTag("BossSpawn25"))
+        {
+            score = score + 1;
+        }
+        if (col.gameObject.CompareTag("BossSpawn35"))
+        {
+            score = score + 1;
+        }
+        if (col.gameObject.CompareTag("BossSpawn40"))
+        {
+            score = score + 1;
+        }
+        if (col.gameObject.CompareTag("BossSpawn60"))
+        {
+            score = score + 1;
+        }
      
     }
      
