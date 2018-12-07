@@ -50,7 +50,7 @@ private void OnTriggerEnter(Collider col)
 
         if (col.gameObject.CompareTag("Teleport1"))
         {
-            transform.position = new Vector3(6f, 38f, 57.5f);
+            transform.position = new Vector3(0f, 2.1f, -6.03f);
             forceAmt = forceAmt - 4;
         }
          if (col.gameObject.CompareTag("End"))

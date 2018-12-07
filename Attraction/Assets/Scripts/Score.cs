@@ -22,7 +22,7 @@ public class Score : MonoBehaviour {
     // Update is called once per frame
     void Update () {
      if (score == 5){
-        SceneManager.LoadScene (2);
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
      }
      //if (gameObject.SetActive(false)){
         //SceneManager.LoadScene(2);
